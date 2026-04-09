@@ -21,7 +21,7 @@ URLHider is a sophisticated command-line tool designed for URL masking and short
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/URLHider.git
+   git clone https://github.com/nithin644/URLHider.git
    cd URLHider
    ```
 
@@ -69,14 +69,10 @@ Masked URL::: https://fakebank.com-login@tinyurl.com/abc123
 
 - `pyshorteners`: For URL shortening functionality.
 
-## License
-
-This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
-
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
 
 ## Author
 
-Developed by Nithin 3> at IHA089. For more information, visit our cybersecurity solutions page.
+Developed by Nithin 3>.
