@@ -1,6 +1,33 @@
 import pyshorteners
 import re, sys, socket
 
+class Colors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    BOLD = '\033[1m'
+    RESET = '\033[0m'
+
+
+def style(text, color):
+    return f"{color}{text}{Colors.RESET}"
+
+
+def print_error(message):
+    print(style(message, Colors.FAIL))
+
+
+def print_info(message):
+    print(style(message, Colors.OKCYAN))
+
+
+def print_success(message):
+    print(style(message, Colors.OKGREEN))
+
+
 def validate_url(url):
     newurl = url.lower()
     if "http" in newurl and "://" in url:
@@ -26,21 +53,20 @@ def internet_connection():
 
 
 def home_logo():
-    print("""
+    print(style("""
 ██    ██ ██████  ██          ███    ███  █████  ███████ ██  ██ 
 ██    ██ ██   ██ ██          ████  ████ ██   ██ ██      ██  ██  
 ██    ██ ██████  ██          ██ ████ ██ ███████ ███████ █████   
 ██    ██ ██   ██ ██          ██  ██  ██ ██   ██      ██ ██  ██  
  ██████  ██   ██ ███████     ██      ██ ██   ██ ███████ ██   ██ 
-
-Nithin 3>: Navigating the Digital Realm with Code and Security - Where Programming Insights Meet Cyber Vigilance.
-    """)
+""", Colors.OKCYAN))
+    print(style("Nithin 3>: Navigating the Digital Realm with Code and Security - Where Programming Insights Meet Cyber Vigilance.", Colors.OKBLUE))
 
 def about():
-    print("""Welcome to IHA089, your premier source for cutting-edge cybersecurity solutions. At IHA089, we specialize in developing tools designed to enhance the security and integrity of your digital environment. 
+    print(style("""Welcome to IHA089, your premier source for cutting-edge cybersecurity solutions. At IHA089, we specialize in developing tools designed to enhance the security and integrity of your digital environment. 
 
 We understand the importance of reliable and efficient cybersecurity solutions, which is why we focus on creating tools that are not only powerful but also user-friendly. Our tools are designed to streamline security processes, making it easier for organizations to protect their assets and maintain a secure operational framework.
-    """)
+    """, Colors.OKGREEN))
 
 
 def validate_phishing_keyword(keyword):
@@ -60,9 +86,9 @@ def shorting_url(short_obj, url):
         return "error"
 
 def shortener_service(url):
-    print("1\ttinyurl\n2\tdagd\n3\tclckru")
+    print(style("1\tTinyURL\n2\tDAGd\n3\tCLCKRU", Colors.OKGREEN))
     try:
-        select = int(input("select : "))
+        select = int(input(style("Select an option [1-3]: ", Colors.OKBLUE)))
         shortner = pyshorteners.Shortener()
         if select == 1:
             shorter = shortner.tinyurl
@@ -74,10 +100,10 @@ def shortener_service(url):
             shorter = shortner.clckru
             return shorting_url(shorter, url)
         else:
-            print("please select between 1-3")
+            print_error("Please select a number between 1 and 3.")
             return "error"
     except ValueError:
-        print("please select between 1-3")
+        print_error("Please select a number between 1 and 3.")
         return "error"
 
 def combiner(masked_url, domain_name, phishing_keyword):
@@ -109,12 +135,12 @@ def urlmask():
         print("\nExit by user")
         return 0
     if original_url == "":
-        print("Please enter an url")
+        print_error("Please enter a URL.")
         return 0
 
     check_url_valid = validate_url(original_url)
     if check_url_valid == "":
-        print("URL is not valid, please enter correct url[Ex:https://google.com]")
+        print_error("URL is not valid, please enter a correct URL (Ex: https://google.com).")
         return 0
 
     masked_url = shortener_service(original_url)
@@ -129,10 +155,10 @@ def urlmask():
 
     domain_name = domain_nam.lower()
     if domain_name == "":
-        print("Please enter an domain name")
+        print_error("Please enter a domain name.")
         return 0
     if not validate_domain(domain_name):
-        print("please enter corrct domain name[Ex: google.com, facebook.com etc]")
+        print_error("Please enter a correct domain name (Ex: google.com, facebook.com).")
         return 0
 
     try:
@@ -149,13 +175,13 @@ def urlmask():
             return 0
         phishing_keyword = phishing_keyword.lower()
         if not validate_phishing_keyword(phishing_keyword):
-            print("please enter valid phishing keyword that include alphbats, number, '-' and '_'symbol")
+            print_error("Please enter a valid phishing keyword using letters, numbers, '-' or '_'.")
             return 0
     else:
         phishing_keyword = ""
     
     result = combiner(masked_url, domain_name, phishing_keyword)
-    print("Masked URL:::{}".format(result))
+    print_success("Masked URL::: {}".format(result))
     
 if __name__ == "__main__":
     urlmask()
