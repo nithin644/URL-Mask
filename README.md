@@ -1,27 +1,27 @@
-# URLHider
+# 🔗 URLHider
 
 URLHider is a sophisticated command-line tool designed for URL masking and shortening, enabling users to create disguised URLs for various purposes, including cybersecurity testing and research. Built with Python, it leverages popular URL shortening services to generate masked links that can help in understanding and mitigating potential phishing threats.
 
-## Features
+## ✨ Features
 
-- **URL Validation**: Ensures input URLs are properly formatted before processing.
-- **Multiple Shorteners**: Supports TinyURL, DAGd, and CLCKRU for URL shortening.
-- **Domain Masking**: Allows masking URLs with custom domains and optional phishing keywords.
-- **Professional CLI**: Color-coded output for enhanced user experience.
-- **Error Handling**: Robust input validation and error messaging.
+- ✅ **URL Validation**: Ensures input URLs are properly formatted before processing.
+- 🔗 **Multiple Shorteners**: Supports TinyURL, DAGd, and CLCKRU for URL shortening.
+- 🎭 **Domain Masking**: Allows masking URLs with custom domains and optional phishing keywords.
+- 🎨 **Professional CLI**: Color-coded output for enhanced user experience.
+- 🛡️ **Error Handling**: Robust input validation and error messaging.
 
-## Installation
+## 🚀 Installation
 
-### Prerequisites
+### 📋 Prerequisites
 
-- Python 3.6 or higher
-- Internet connection for URL shortening services
+- 🐍 Python 3.6 or higher
+- 🌐 Internet connection for URL shortening services
 
-### Steps
+### 🔧 Steps
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/nithin644/URLHider.git
+   git clone https://github.com/nithin644/URL-Mask.git
    cd URLHider
    ```
 
@@ -42,7 +42,7 @@ URLHider is a sophisticated command-line tool designed for URL masking and short
    python URLHider.py about
    ```
 
-## Usage
+## 📖 Usage
 
 1. Launch the tool by running `python URLHider.py`.
 2. Enter the original URL when prompted (e.g., `https://google.com`).
@@ -51,7 +51,7 @@ URLHider is a sophisticated command-line tool designed for URL masking and short
 5. Optionally, add a phishing keyword.
 6. The tool will output the masked URL.
 
-### Example
+### 💡 Example
 
 ```
 Enter original url[Ex. https://google.com]: https://example.com
@@ -65,14 +65,15 @@ Enter phishing keyworkd[Ex: free, login]: login
 Masked URL::: https://fakebank.com-login@tinyurl.com/abc123
 ```
 
-## Requirements
+## 📦 Requirements
 
 - `pyshorteners`: For URL shortening functionality.
 
-## Contributing
+
+## 🤝 Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
 
-## Author
+## 👤 Author
 
 Developed by Nithin 3>.
